@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>{{ request.path == '/signup' and "Signup" or "Login" }}</h2>
+    <form method="POST" action="{{ url_for(request.path == '/signup' and 'signup' or 'login') }}">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">{{ request.path == '/signup' and "Signup" or "Login" }}</button>
+    </form>
+    <p>
+        {% if request.path == '/signup' %}
+            Already have an account? <a href="{{ url_for('login') }}">Login</a>
+        {% else %}
+            Don't have an account? <a href="{{ url_for('signup') }}">Signup</a>
+        {% endif %}
+    </p>
+</div>
+{% endblock %}

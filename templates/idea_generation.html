@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="idea-form">
+    <h2>Generate New Idea</h2>
+    <form method="POST" action="{{ url_for('idea_generation') }}">
+        <input type="text" name="title" placeholder="Title" required>
+        <textarea name="description" placeholder="Description" required></textarea>
+        <input type="text" name="tags" placeholder="Tags (comma-separated)">
+        <button type="submit">Save Idea</button>
+    </form>
+</div>
+{% endblock %}

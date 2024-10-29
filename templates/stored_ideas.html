@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="ideas-list">
+    <h2>Your Stored Ideas</h2>
+    {% if ideas %}
+        <ul>
+            {% for idea in ideas %}
+                <li>
+                    <h3>{{ idea.title }}</h3>
+                    <p>{{ idea.description }}</p>
+                    <span>Tags: {{ idea.tags }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No ideas stored yet. Go back to <a href="{{ url_for('landing') }}">Dump Now</a>!</p>
+    {% endif %}
+</div>
+{% endblock %}
